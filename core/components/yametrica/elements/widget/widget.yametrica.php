@@ -1,4 +1,8 @@
 <?php
+
+echo 2;
+
+exit;
 /* load the analytics lexicon into the JS lexicon */
 $corePath = $modx->getOption(
     'yametrica.core_path',
