@@ -1,0 +1,1 @@
+<div id="yametrica-sources-widget"></div>
