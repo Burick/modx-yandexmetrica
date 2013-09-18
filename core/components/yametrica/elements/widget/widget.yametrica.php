@@ -4,15 +4,7 @@ echo 2;
 
 exit;
 /* load the analytics lexicon into the JS lexicon */
-$corePath = $modx->getOption(
-    'yametrica.core_path',
-    null,
-    $modx->getOption('core_path') . 'components/yametrica/'
-);
 
-require_once $corePath . 'model/yametrica/yametrica.class.php';
-
-$yametrica = new YandexMetrica($modx);
 $modx->controller->addLexiconTopic('yametrica:default');
 $modx->regClientStartupHTMLBlock(
     '<script type="text/javascript">

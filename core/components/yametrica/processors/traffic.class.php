@@ -1,8 +1,9 @@
 <?php
 
-class TrafficYMWidget extends modDashboardWidgetInterface {
-
-    public function getData() {
+class modYMTrafficWidgetProcessor extends modProcessor
+{
+    public function process()
+    {
         $params = [
             'id' => $this->modx->getOption('yametrica.counter_id'),
             'oauth_token' => $this->modx->getOption('yametrica.oauth_token'),
@@ -11,14 +12,10 @@ class TrafficYMWidget extends modDashboardWidgetInterface {
 
         $url = "http://api-metrika.yandex.ru/stat/traffic/summary.json?" . http_build_query($params);
 
-        $data = file_get_contents($url);
+        $data = $this->modx->fromJSON(file_get_contents($url));
 
-        return $data;
-    }
-
-    public function render() {
-
-        return $this->getData();
+        return $this->success('2', $data);
     }
 }
-return 'TrafficYMWidget';
+
+return 'modYMTrafficWidgetProcessor';

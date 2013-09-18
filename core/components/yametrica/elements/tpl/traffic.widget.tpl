@@ -1,0 +1,1 @@
+<div id="yametrica-traffic-widget"></div>
