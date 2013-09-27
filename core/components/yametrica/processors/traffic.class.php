@@ -1,6 +1,6 @@
 <?php
 
-class modYMTrafficWidgetProcessor extends modProcessor
+class YMTrafficWidgetProcessor extends modProcessor
 {
     public function process()
     {
@@ -14,8 +14,12 @@ class modYMTrafficWidgetProcessor extends modProcessor
 
         $data = $this->modx->fromJSON(file_get_contents($url));
 
-        return $this->success('2', $data);
+        return $this->outputArray($data);
+    }
+
+    public function outputArray(array $array, $count = false) {
+        return $this->modx->toJSON($array);
     }
 }
 
-return 'modYMTrafficWidgetProcessor';
+return 'YMTrafficWidgetProcessor';
